@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function POSBillingApp() {
   const [items, setItems] = useState([]);
@@ -9,6 +9,11 @@ export default function POSBillingApp() {
   const [qty, setQty] = useState(1);
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // কমন আইটেমের লিস্ট
   const commonItems = [
@@ -41,10 +46,12 @@ export default function POSBillingApp() {
     setCustomerPhone('');
   };
 
+  if (!isMounted) return null;
+
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-8 flex flex-col md:flex-row gap-8 font-sans">
       
-      {/* ---------------- ইনপুট সেকশন (প্রিন্টের সময় হাইড থাকবে) ---------------- */}
+      {/* ---------------- ইনপুট সেকশন (প্রিন্টের সময় হাইড থাকবে) ---------------- */}
       <div className="print:hidden w-full md:w-1/2 bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold mb-6 text-gray-800">New Invoice</h2>
         
@@ -102,7 +109,7 @@ export default function POSBillingApp() {
         </div>
       </div>
 
-      {/* ---------------- মেমো / রিসিট সেকশন (প্রিন্টের সময় শুধুমাত্র এটি দেখাবে) ---------------- */}
+      {/* ---------------- মেমো / রিসিট সেকশন (প্রিন্টের সময় শুধুমাত্র এটি দেখাবে) ---------------- */}
       <div className="w-full md:w-auto flex justify-center border-l pl-0 md:pl-8 print:border-none print:p-0 print:m-0">
         <div 
           id="printable-receipt" 
@@ -155,7 +162,6 @@ export default function POSBillingApp() {
           <div className="text-center text-xs flex flex-col items-center">
             <p className="mb-2">Thank you for staying connected!</p>
             <p className="mb-1">Pay via bKash/Nagad</p>
-            {/* ডেমো কিউআর কোড (আপনি চাইলে react-qr-code লাইব্রেরি দিয়ে জেনারেট করতে পারেন) */}
             <div className="w-20 h-20 border border-gray-800 flex items-center justify-center text-[10px] bg-gray-100">
               [QR Code]
             </div>
