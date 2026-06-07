@@ -121,34 +121,32 @@ export default function PKTechApp() {
   if (!isMounted) return null;
 
   return (
-    <div className="min-h-screen bg-[#050505] text-gray-200 font-sans relative overflow-x-hidden selection:bg-[#39FF14] selection:text-black">
-      
-      {/* --- Subtle Neon Background Glow --- */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#39FF14]/15 via-transparent to-transparent -z-10 pointer-events-none blur-3xl"></div>
+    // ------------------ SOLID NEON GREEN BACKGROUND ------------------
+    <div className="min-h-screen bg-[#39FF14] text-black font-sans relative overflow-x-hidden selection:bg-black selection:text-[#39FF14]">
 
-      {/* ------------------ NAVIGATION (Responsive Fix) ------------------ */}
-      <nav className="print:hidden border-b border-[#39FF14]/10 bg-[#0a0a0a]/80 backdrop-blur-md sticky top-0 z-50">
+      {/* ------------------ NAVIGATION BAR ------------------ */}
+      <nav className="print:hidden bg-[#050505] sticky top-0 z-50 shadow-2xl border-b-[6px] border-black">
         <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-[#39FF14] rounded-lg flex items-center justify-center text-black font-extrabold text-xl shadow-[0_0_15px_rgba(57,255,20,0.5)]">
               PK
             </div>
             <div>
-              <h1 className="text-2xl font-extrabold tracking-widest text-white uppercase">PK <span className="text-white">TECH</span></h1>
-              <p className="text-[10px] tracking-wider text-[#39FF14] uppercase">ISP & Electronics</p>
+              <h1 className="text-2xl font-extrabold tracking-widest text-white uppercase">PK <span className="text-[#39FF14]">TECH</span></h1>
+              <p className="text-[10px] tracking-wider text-gray-400 uppercase">ISP & Electronics</p>
             </div>
           </div>
           
-          <div className="flex bg-[#111] p-1 rounded-lg border border-[#222]">
+          <div className="flex bg-[#1a1a1a] p-1 rounded-lg">
             <button 
               onClick={() => setActiveTab('billing')}
-              className={`px-5 py-2 rounded-md font-bold text-sm transition-all duration-300 ${activeTab === 'billing' ? 'bg-[#39FF14] text-black shadow-[0_0_15px_rgba(57,255,20,0.3)]' : 'text-gray-300 hover:text-white'}`}
+              className={`px-5 py-2 rounded-md font-bold text-sm transition-all duration-300 ${activeTab === 'billing' ? 'bg-[#39FF14] text-black' : 'text-white hover:text-[#39FF14]'}`}
             >
               POS Billing
             </button>
             <button 
               onClick={() => setActiveTab('dashboard')}
-              className={`px-5 py-2 rounded-md font-bold text-sm transition-all duration-300 ${activeTab === 'dashboard' ? 'bg-[#39FF14] text-black shadow-[0_0_15px_rgba(57,255,20,0.3)]' : 'text-gray-300 hover:text-white'}`}
+              className={`px-5 py-2 rounded-md font-bold text-sm transition-all duration-300 ${activeTab === 'dashboard' ? 'bg-[#39FF14] text-black' : 'text-white hover:text-[#39FF14]'}`}
             >
               Dashboard
             </button>
@@ -164,57 +162,57 @@ export default function PKTechApp() {
         ========================================== */}
         {activeTab === 'billing' && (
           <>
-            <div className="print:hidden w-full md:w-1/2 bg-[#0a0a0a]/60 backdrop-blur-sm border border-[#222] p-6 md:p-8 rounded-2xl shadow-2xl relative">
-              <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-2">
-                <span className="w-1.5 h-6 bg-[#39FF14] rounded-full"></span> New Invoice
+            <div className="print:hidden w-full md:w-1/2 bg-[#050505] p-6 md:p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative border-[4px] border-black">
+              <h2 className="text-2xl font-extrabold mb-6 text-white flex items-center gap-2 uppercase tracking-wide">
+                <span className="w-2 h-6 bg-[#39FF14] rounded-full"></span> New Invoice
               </h2>
               
               <div className="mb-5 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-300 mb-1 uppercase tracking-wider">Customer Name</label>
-                  <input type="text" placeholder="e.g. Asif Iqbal" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="bg-[#111] text-white border border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14] transition" />
+                  <label className="block text-xs font-bold text-[#39FF14] mb-1 uppercase tracking-wider">Customer Name</label>
+                  <input type="text" placeholder="e.g. Asif Iqbal" value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="bg-[#1a1a1a] text-white border-2 border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14] transition" />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-gray-300 mb-1 uppercase tracking-wider">Phone Number</label>
-                  <input type="text" placeholder="017XX..." value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} className="bg-[#111] text-white border border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14] transition" />
+                  <label className="block text-xs font-bold text-[#39FF14] mb-1 uppercase tracking-wider">Phone Number</label>
+                  <input type="text" placeholder="017XX..." value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} className="bg-[#1a1a1a] text-white border-2 border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14] transition" />
                 </div>
               </div>
 
-              <form onSubmit={handleAddItem} className="mb-8 space-y-5 border-t border-[#222] pt-6">
+              <form onSubmit={handleAddItem} className="mb-8 space-y-5 border-t-2 border-[#222] pt-6">
                 <div>
-                  <label className="block text-xs font-semibold text-gray-300 mb-1 uppercase tracking-wider">Select Product / Service</label>
-                  <input list="item-options" type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} required className="bg-[#111] text-white border border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14] transition" />
+                  <label className="block text-xs font-bold text-[#39FF14] mb-1 uppercase tracking-wider">Select Product / Service</label>
+                  <input list="item-options" type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} required className="bg-[#1a1a1a] text-white border-2 border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14] transition" />
                   <datalist id="item-options">{commonItems.map((item, idx) => <option key={idx} value={item} />)}</datalist>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs font-semibold text-gray-300 mb-1 uppercase tracking-wider">Unit Price (৳)</label>
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required min="0" className="bg-[#111] text-white font-bold border border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14]" />
+                    <label className="block text-xs font-bold text-[#39FF14] mb-1 uppercase tracking-wider">Unit Price (৳)</label>
+                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required min="0" className="bg-[#1a1a1a] text-white font-extrabold border-2 border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14]" />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-300 mb-1 uppercase tracking-wider">Quantity</label>
-                    <input type="number" value={qty} onChange={(e) => setQty(e.target.value)} required min="1" className="bg-[#111] text-white font-bold border border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14]" />
+                    <label className="block text-xs font-bold text-[#39FF14] mb-1 uppercase tracking-wider">Quantity</label>
+                    <input type="number" value={qty} onChange={(e) => setQty(e.target.value)} required min="1" className="bg-[#1a1a1a] text-white font-extrabold border-2 border-[#333] p-3.5 rounded-xl w-full focus:outline-none focus:border-[#39FF14]" />
                   </div>
                 </div>
-                <button type="submit" className="w-full bg-[#1a1a1a] border border-[#333] text-white hover:border-[#39FF14] hover:text-[#39FF14] font-extrabold text-sm tracking-wider uppercase py-4 rounded-xl transition-all duration-300">
+                <button type="submit" className="w-full bg-[#1a1a1a] border-2 border-[#333] text-white hover:border-[#39FF14] hover:text-[#39FF14] font-extrabold text-sm tracking-wider uppercase py-4 rounded-xl transition-all duration-300">
                   + Add to List
                 </button>
               </form>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={handleSaveAndPrint} disabled={isSaving} className="flex-[2] bg-[#39FF14] text-black font-extrabold text-sm tracking-wider uppercase py-4 rounded-xl hover:bg-[#32e612] transform active:scale-95 transition-all shadow-[0_0_20px_rgba(57,255,20,0.3)] disabled:opacity-50 disabled:shadow-none">
+                <button onClick={handleSaveAndPrint} disabled={isSaving} className="flex-[2] bg-[#39FF14] text-black font-extrabold text-sm tracking-widest uppercase py-4 rounded-xl hover:bg-white transform active:scale-95 transition-all shadow-[0_0_20px_rgba(57,255,20,0.3)] disabled:opacity-50">
                   {isSaving ? "Saving..." : "Save & Print Receipt"}
                 </button>
-                <button onClick={handleClear} className="flex-1 bg-transparent text-gray-400 font-bold py-4 rounded-xl hover:bg-[#111] border border-[#333] transition-all">
+                <button onClick={handleClear} className="flex-1 bg-transparent text-gray-400 font-bold py-4 rounded-xl hover:bg-[#1a1a1a] border-2 border-[#333] transition-all">
                   Clear All
                 </button>
               </div>
             </div>
 
             {/* ---------------- RECEIPT SECTION (Visible on Print) ---------------- */}
-            <div className="w-full md:w-auto flex justify-center border-l-0 md:border-l border-[#222] pl-0 md:pl-10 print:border-none print:p-0 print:m-0 print:block">
-              <div id="printable-receipt" className="bg-white p-4 text-black w-[80mm] shadow-xl print:shadow-none print:w-[80mm] print:p-0 text-sm font-mono mx-auto">
+            <div className="w-full md:w-auto flex justify-center print:border-none print:p-0 print:m-0 print:block">
+              <div id="printable-receipt" className="bg-white p-4 text-black w-[80mm] shadow-[0_20px_50px_rgba(0,0,0,0.3)] print:shadow-none print:w-[80mm] print:p-0 text-sm font-mono mx-auto border-[4px] border-black rounded-sm print:border-none">
                 <div className="text-center mb-4">
                   <h1 className="font-extrabold text-3xl uppercase tracking-widest text-black">PK TECH</h1>
                   <p className="text-xs font-bold mt-1">Khidirpur Bazar</p>
@@ -259,7 +257,7 @@ export default function PKTechApp() {
                   <div className="w-24 h-24 border-2 border-black flex items-center justify-center text-[10px] bg-gray-100 font-bold mb-2">
                     [bKash QR]
                   </div>
-                  <p className="mt-1 text-[10px] text-gray-600">Generated by PK TECH Software</p>
+                  <p className="mt-1 text-[10px] text-gray-600">Generated by PK TECH</p>
                 </div>
               </div>
             </div>
@@ -272,52 +270,52 @@ export default function PKTechApp() {
         {activeTab === 'dashboard' && (
           <div className="w-full print:hidden">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-8">
-              <div className="bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#222] p-6 rounded-2xl relative overflow-hidden">
-                <div className="absolute -bottom-4 -right-4 text-[#39FF14] opacity-5 text-8xl">৳</div>
-                <h3 className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Revenue</h3>
+              <div className="bg-[#050505] border-[4px] border-black p-6 rounded-3xl relative overflow-hidden shadow-2xl">
+                <div className="absolute -bottom-4 -right-4 text-[#39FF14] opacity-10 text-8xl">৳</div>
+                <h3 className="text-[#39FF14] text-sm font-extrabold uppercase tracking-widest mb-2">Total Revenue</h3>
                 <p className="text-3xl md:text-4xl font-extrabold text-white">৳ {totalRevenue.toLocaleString()}</p>
               </div>
               
-              <div className="bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#222] p-6 rounded-2xl relative overflow-hidden">
-                <div className="absolute -bottom-4 -right-4 text-[#39FF14] opacity-5 text-8xl">#</div>
-                <h3 className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Invoices</h3>
+              <div className="bg-[#050505] border-[4px] border-black p-6 rounded-3xl relative overflow-hidden shadow-2xl">
+                <div className="absolute -bottom-4 -right-4 text-[#39FF14] opacity-10 text-8xl">#</div>
+                <h3 className="text-[#39FF14] text-sm font-extrabold uppercase tracking-widest mb-2">Total Invoices</h3>
                 <p className="text-3xl md:text-4xl font-extrabold text-white">{salesData.length}</p>
               </div>
 
-              <div className="bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#222] p-6 rounded-2xl relative flex flex-col justify-center">
+              <div className="bg-[#050505] border-[4px] border-black p-6 rounded-3xl relative flex flex-col justify-center shadow-2xl">
                 <div className="flex justify-between items-center w-full">
                   <div>
-                    <h3 className="text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Status</h3>
+                    <h3 className="text-[#39FF14] text-sm font-extrabold uppercase tracking-widest mb-2">Status</h3>
                     <p className="text-lg font-bold text-white flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 bg-[#39FF14] shadow-[0_0_8px_rgba(57,255,20,1)] rounded-full animate-pulse"></span> Online
+                      <span className="w-3 h-3 bg-[#39FF14] rounded-full animate-pulse shadow-[0_0_10px_#39FF14]"></span> Online
                     </p>
                   </div>
-                  <button onClick={fetchSalesData} className="p-3 bg-[#111] border border-[#333] hover:border-[#39FF14] hover:text-[#39FF14] rounded-xl transition-all">
+                  <button onClick={fetchSalesData} className="p-3 bg-[#1a1a1a] border-2 border-[#333] hover:border-[#39FF14] rounded-xl transition-all">
                     🔄
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#222] rounded-2xl overflow-hidden shadow-xl">
-              <div className="px-4 md:px-6 py-5 border-b border-[#222] bg-[#111]">
-                <h3 className="text-lg font-bold text-white uppercase tracking-wider">Sales History</h3>
+            <div className="bg-[#050505] border-[4px] border-black rounded-3xl overflow-hidden shadow-2xl">
+              <div className="px-4 md:px-6 py-5 border-b-2 border-[#222] bg-[#000]">
+                <h3 className="text-lg font-extrabold text-[#39FF14] uppercase tracking-widest">Sales History</h3>
               </div>
               
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm whitespace-nowrap md:whitespace-normal">
-                  <thead className="bg-[#050505] text-gray-400 text-xs uppercase tracking-wider border-b border-[#222]">
+                  <thead className="bg-[#111] text-gray-400 text-xs uppercase tracking-wider border-b-2 border-[#222]">
                     <tr>
-                      <th className="px-4 md:px-6 py-4 font-semibold">Date & Time</th>
-                      <th className="px-4 md:px-6 py-4 font-semibold">Customer Details</th>
-                      <th className="px-4 md:px-6 py-4 font-semibold">Items</th>
-                      <th className="px-4 md:px-6 py-4 text-right font-semibold">Total Amount</th>
-                      <th className="px-4 md:px-6 py-4 text-center font-semibold text-red-500">Action</th>
+                      <th className="px-4 md:px-6 py-4 font-bold">Date & Time</th>
+                      <th className="px-4 md:px-6 py-4 font-bold">Customer Details</th>
+                      <th className="px-4 md:px-6 py-4 font-bold">Items</th>
+                      <th className="px-4 md:px-6 py-4 text-right font-bold">Total Amount</th>
+                      <th className="px-4 md:px-6 py-4 text-center font-bold text-red-500">Action</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-[#222]">
+                  <tbody className="divide-y-2 divide-[#1a1a1a]">
                     {isLoadingData ? (
-                      <tr><td colSpan="5" className="text-center py-10 text-gray-400 animate-pulse">Loading data...</td></tr>
+                      <tr><td colSpan="5" className="text-center py-10 text-[#39FF14] font-bold animate-pulse">Loading data...</td></tr>
                     ) : salesData.length === 0 ? (
                       <tr><td colSpan="5" className="text-center py-10 text-gray-500">No sales recorded yet.</td></tr>
                     ) : (
@@ -325,30 +323,30 @@ export default function PKTechApp() {
                         <tr key={invoice.id} className="hover:bg-[#111] transition-colors duration-200">
                           <td className="px-4 md:px-6 py-4 text-gray-300">
                             {new Date(invoice.created_at).toLocaleDateString()}<br/>
-                            <span className="text-[10px] text-gray-500">{new Date(invoice.created_at).toLocaleTimeString()}</span>
+                            <span className="text-[10px] text-[#39FF14] font-bold">{new Date(invoice.created_at).toLocaleTimeString()}</span>
                           </td>
                           <td className="px-4 md:px-6 py-4">
-                            <p className="font-bold text-white">{invoice.customer_name}</p>
+                            <p className="font-bold text-white text-base">{invoice.customer_name}</p>
                             <p className="text-xs text-gray-500">{invoice.phone}</p>
                           </td>
                           <td className="px-4 md:px-6 py-4">
                             <div className="flex flex-wrap gap-1">
                               {invoice.items && invoice.items.map((item, idx) => (
-                                <span key={idx} className="bg-[#1a1a1a] text-gray-300 text-[10px] px-2 py-1 rounded-md border border-[#333]">
-                                  {item.name} (x{item.qty})
+                                <span key={idx} className="bg-[#1a1a1a] text-white text-[10px] px-2 py-1 rounded-md border border-[#333]">
+                                  {item.name} <span className="text-[#39FF14]">(x{item.qty})</span>
                                 </span>
                               ))}
                             </div>
                           </td>
-                          <td className="px-4 md:px-6 py-4 text-right font-extrabold text-white">
+                          <td className="px-4 md:px-6 py-4 text-right font-extrabold text-white text-lg">
                             ৳ {invoice.total_amount}
                           </td>
                           <td className="px-4 md:px-6 py-4 text-center">
                             <button 
                               onClick={() => handleDeleteInvoice(invoice.id)}
-                              className="text-gray-400 hover:text-white bg-transparent hover:bg-red-600 border border-[#333] hover:border-red-600 px-3 py-1.5 rounded-lg text-xs font-bold transition-all"
+                              className="text-white bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-[0_0_10px_rgba(220,38,38,0.3)]"
                             >
-                              Delete
+                              DELETE
                             </button>
                           </td>
                         </tr>
