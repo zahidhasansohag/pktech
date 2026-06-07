@@ -81,6 +81,7 @@ export default function PKTechPremiumApp() {
     e.preventDefault();
     if (!itemName || !price) return;
     setItems([...items, { name: itemName, price: parseFloat(price), qty: parseInt(qty) }]);
+    setItemName('');
     setPrice(''); setQty(1);
   };
 
@@ -299,7 +300,7 @@ export default function PKTechPremiumApp() {
                 <div className="grid grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Unit Price (৳)</label>
-                    <input type="number" value={price} onChange={(e) => setPrice(e.target.value)} required min="0" className="bg-[#0f172a] text-emerald-400 font-bold border border-slate-700 p-3.5 rounded-xl w-full focus:outline-none focus:border-emerald-500 transition-colors" />
+                    <input type="number" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} required min="0" className="bg-[#0f172a] text-emerald-400 font-bold border border-slate-700 p-3.5 rounded-xl w-full focus:outline-none focus:border-emerald-500 transition-colors" />
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-slate-400 mb-1.5 uppercase tracking-wider">Quantity</label>
