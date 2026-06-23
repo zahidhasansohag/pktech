@@ -4,20 +4,14 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url = "file:./dev.db"
+  url      = "file:./dev.db"
 }
 
 model Product {
-
-  id Int @id @default(autoincrement())
-
-  name String
-
-  buyPrice Float
-
-  sellPrice Float
-
-  stock Int
-
-  createdAt DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  name       String
+  buyPrice   Float
+  sellPrice  Float
+  stock      Int
+  createdAt  DateTime @default(now())
 }
